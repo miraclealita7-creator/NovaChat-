@@ -1,0 +1,331 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ead7f7, #f7edff);
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px;
+}
+
+/* =========================
+   NOVA CHAT CONTAINER
+========================= */
+
+.chat-container {
+    width: 100%;
+    max-width: 500px;
+
+    height: 90vh;
+    max-height: 750px;
+
+    background: #ffffff;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.chat-header {
+    width: 100%;
+
+    background: linear-gradient(135deg, #8e44ad, #6f2c91);
+
+    color: white;
+
+    padding: 20px;
+
+    text-align: center;
+
+    flex-shrink: 0;
+}
+
+.chat-header h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.chat-header p {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* =========================
+   CHAT AREA
+========================= */
+
+#chat {
+    flex: 1;
+
+    width: 100%;
+
+    padding: 20px;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    background: #faf7fc;
+}
+
+/* =========================
+   BOT MESSAGE
+========================= */
+
+.bot-message {
+    align-self: flex-start;
+
+    max-width: 80%;
+
+    background: #eadcf3;
+
+    color: #333;
+
+    padding: 12px 15px;
+
+    border-radius: 18px 18px 18px 5px;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    word-wrap: break-word;
+
+    animation: messageAppear 0.3s ease;
+}
+
+/* =========================
+   USER MESSAGE
+========================= */
+
+.user-message {
+    align-self: flex-end;
+
+    max-width: 80%;
+
+    background: #8e44ad;
+
+    color: white;
+
+    padding: 12px 15px;
+
+    border-radius: 18px 18px 5px 18px;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    word-wrap: break-word;
+
+    animation: messageAppear 0.3s ease;
+}
+
+/* =========================
+   MESSAGE ANIMATION
+========================= */
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================
+   TYPING
+========================= */
+
+#typing {
+    animation: typing 1s infinite;
+}
+
+@keyframes typing {
+
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+
+}
+
+/* =========================
+   INPUT AREA
+========================= */
+
+.input-area {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 15px;
+
+    background: white;
+
+    border-top: 1px solid #eee;
+
+    flex-shrink: 0;
+}
+
+/* =========================
+   INPUT
+========================= */
+
+#message {
+    flex: 1;
+
+    min-width: 0;
+
+    height: 48px;
+
+    border: 2px solid #e1d1e8;
+
+    border-radius: 25px;
+
+    padding: 0 17px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+#message:focus {
+    border-color: #8e44ad;
+}
+
+/* =========================
+   SEND BUTTON
+========================= */
+
+button {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #8e44ad;
+
+    color: white;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #6f2c91;
+}
+
+button:active {
+    transform: scale(0.92);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+#chat::-webkit-scrollbar {
+    width: 5px;
+}
+
+#chat::-webkit-scrollbar-thumb {
+    background: #c8a5d8;
+    border-radius: 10px;
+}
+
+/* =========================
+   PHONE SCREEN
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 0;
+
+        align-items: stretch;
+    }
+
+    .chat-container {
+        width: 100%;
+
+        height: 100vh;
+        max-height: none;
+
+        border-radius: 0;
+    }
+
+    .chat-header {
+        padding: 18px;
+    }
+
+    .chat-header h1 {
+        font-size: 22px;
+    }
+
+    #chat {
+        padding: 15px;
+    }
+
+    .bot-message,
+    .user-message {
+        max-width: 85%;
+        font-size: 14px;
+    }
+
+    .input-area {
+        padding: 12px;
+    }
+
+}
